@@ -1,0 +1,105 @@
+.app_submission_container {
+  form label {
+    display: flex;
+    column-gap: 10px;
+  }
+
+  form .login_data_container {
+    margin-top: 20px;
+    background-color: #00171f;
+    padding: 10px;
+    border-radius: 12px;
+  }
+
+  form .checkbox {
+    height: 30px;
+    width: 30px;
+  }
+
+  .prints_row {
+    display: flex;
+    gap: 15px;
+
+    button {
+      background-color: #003459;
+    }
+  }
+
+  .title {
+    font-size: 24px;
+    margin-bottom: 50px;
+  }
+
+  .item_row {
+    display: flex;
+    align-items: center;
+    column-gap: 20px;
+  }
+
+  .right_column {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    align-items: center;
+
+    .btns_row {
+      display: flex;
+      column-gap: 25px;
+      align-items: center;
+    }
+  }
+}
+
+.image_container {
+  position: relative;
+  height: 160px;
+  width: 240px;
+}
+
+.image_container img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  border-radius: 14px;
+}
+
+.image_container .overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%; /* Ajuste conforme necessário */
+  height: 50%; /* Ajuste conforme necessário */
+  background-color: rgba(
+    189,
+    193,
+    253,
+    0.8
+  ); /* Cor preta com 50% de transparência */
+  border-radius: 14px;
+  box-shadow: 0 4px 8px rgba(25, 24, 24, 0.644); /* Sombreamento */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image_container .overlay p {
+  color: #fff;
+  font-size: 17px;
+  font-weight: 700;
+}
+
+hr {
+  margin-top: 15px;
+}
+
+.item_container {
+  margin-top: 15px;
+}
+
+@media (max-width: 500px) {
+  .item_row {
+    flex-direction: column;
+    align-items: center;
+  }
+}

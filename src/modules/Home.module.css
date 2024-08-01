@@ -1,0 +1,142 @@
+.home_container {
+  font-family: Arial, sans-serif;
+
+  header {
+    background: #4caf50;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+  }
+
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+  }
+
+  .logo {
+    font-size: 1.5em;
+  }
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+nav ul li {
+  margin-left: 20px;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+}
+
+.hero {
+  padding: 100px 20px;
+  text-align: center;
+  background-image: url("https://source.unsplash.com/1600x900/?technology");
+  background-size: cover;
+  color: white;
+}
+
+.hero h1 {
+  margin: 0;
+  font-size: 2.5em;
+}
+
+.hero p {
+  font-size: 1.2em;
+}
+
+.cta {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background: #ff5722;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+section {
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.benefits_container,
+.pricing_container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.benefit,
+.pricing_plan {
+  flex: 1;
+  margin: 20px;
+  max-width: 300px;
+  text-align: center;
+}
+
+.benefit img,
+.pricing-plan img {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
+.pricing-plan {
+  border: 1px solid #ddd;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.pricing-plan h3 {
+  margin-top: 0;
+}
+
+form {
+  max-width: 500px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+form label {
+  margin-top: 10px;
+  text-align: left;
+}
+
+form input,
+form textarea {
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+form button {
+  padding: 10px 20px;
+  margin-top: 20px;
+  border: none;
+  background: #4caf50;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+form label {
+  color: white;
+}
+
+footer {
+  background: #333;
+  color: white;
+  padding: 10px 0;
+  text-align: center;
+}
