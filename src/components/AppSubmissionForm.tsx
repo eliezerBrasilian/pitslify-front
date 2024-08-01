@@ -1,4 +1,4 @@
-import { FormEvent, useState } from "react";
+import { ChangeEvent, FormEvent, useState } from "react";
 import s from "../modules/UserArea.module.css";
 export const AppSubmissionForm = () => {
   const [formData, setFormData] = useState({
@@ -16,7 +16,7 @@ export const AppSubmissionForm = () => {
     screenshots: [],
   });
 
-  const handleChange = (e) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value, type, checked } = e.target;
     setFormData({
       ...formData,
@@ -24,7 +24,16 @@ export const AppSubmissionForm = () => {
     });
   };
 
-  const handleFileChange = (e) => {
+  const handleChangeTextArea = (e: ChangeEvent<HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
+
+  const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, files } = e.target;
     setFormData({
       ...formData,
@@ -67,7 +76,7 @@ export const AppSubmissionForm = () => {
           <textarea
             name="longDescription"
             value={formData.longDescription}
-            onChange={handleChange}
+            onChange={handleChangeTextArea}
             required
           />
         </label>

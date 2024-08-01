@@ -1,11 +1,17 @@
 import s from "../modules/Home.module.css";
 
-export const Benefit = ({ imgSrc, title, description }) => {
+interface BenefitProps {
+  imgSrc: string;
+  title: string;
+  description: string;
+}
+
+export const Benefit = (props: BenefitProps) => {
   return (
     <div className={s.benefit}>
-      <img src={imgSrc} alt={title} />
-      <h3>{title}</h3>
-      <p>{description}</p>
+      <img src={props.imgSrc} alt={props.title} />
+      <h3>{props.title}</h3>
+      <p>{props.description}</p>
     </div>
   );
 };

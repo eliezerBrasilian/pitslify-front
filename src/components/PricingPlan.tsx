@@ -1,12 +1,18 @@
 import s from "../modules/Home.module.css";
 
-export const PricingPlan = ({ title, price, linkText, onClick }) => {
+interface PricingPlanProps {
+  title: string;
+  priceText: string;
+  linkText: string;
+  onClick: () => void;
+}
+export const PricingPlan = (props: PricingPlanProps) => {
   return (
     <div className={s.pricing_plan}>
-      <h3>{title}</h3>
-      <p>{price}</p>
-      <p onClick={onClick} className={s.cta}>
-        {linkText}
+      <h3>{props.title}</h3>
+      <p>{props.priceText}</p>
+      <p onClick={props.onClick} className={s.cta}>
+        {props.linkText}
       </p>
     </div>
   );

@@ -12,7 +12,7 @@ export const Pricing = () => {
       <div className={s.pricing_container}>
         <PricingPlan
           title="Pacote Básico"
-          price="R$ 30,00 por publicação"
+          priceText="R$ 30,00 por publicação"
           linkText="Começar"
           onClick={() => {
             nav(`${Rotas.CHECKOUT}/basic`);
@@ -20,7 +20,7 @@ export const Pricing = () => {
         />
         <PricingPlan
           title="Pacote Profissional"
-          price="$70 por mês (publicações ilimitadas)"
+          priceText="$70 por mês (publicações ilimitadas)"
           linkText="Começar"
           onClick={() => {}}
         />
