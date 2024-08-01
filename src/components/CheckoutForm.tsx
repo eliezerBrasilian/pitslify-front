@@ -46,6 +46,7 @@ export function CheckoutForm(props: CheckoutFormProps) {
               value={props.form.fullName}
               onChange={props.form.onNameChange}
               required
+              placeholder="informe seu nome"
             />
           </label>
           <label>
@@ -55,15 +56,17 @@ export function CheckoutForm(props: CheckoutFormProps) {
               value={props.form.email}
               onChange={props.form.onEmailChange}
               required
+              placeholder="informe seu email"
             />
           </label>
           <label>
             Número de Celular:
             <input
-              type="tel"
+              type="number"
               value={props.form.phone}
               onChange={props.form.onPhoneChange}
               required
+              placeholder="informe seu numero de celular"
             />
           </label>
           <label>

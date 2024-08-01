@@ -11,9 +11,9 @@ import s from "../modules/Checkout.module.css";
 import { OrderRepository } from "../repositories/OrderRepository";
 
 const Checkout = () => {
-  const [name, setFullName] = useState("Manoel");
-  const [email, setEmail] = useState("eliezerassuncaocustodio@gmail.com");
-  const [phoneNumber, setPhoneNumber] = useState("32123456789");
+  const [name, setFullName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
   const [userType, setUserType] = useState("usuario");
   const [orderId, setOrderId] = useState("");
   const [orderStatus, setOrderStatus] = useState("");

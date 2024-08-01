@@ -1,11 +1,9 @@
 import { Footer } from "../components/Footer";
-import { Header } from "../components/Header";
 import LoginForm from "../components/LoginForm";
-
+import s from "../modules/Login.module.css";
 const Login = () => {
   return (
-    <div>
-      <Header />
+    <div className={s.login_container}>
       <main>
         <LoginForm />
       </main>
