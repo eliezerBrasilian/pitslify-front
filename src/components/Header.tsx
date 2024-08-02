@@ -8,25 +8,26 @@ export const Header = () => {
     <header>
       <nav>
         <div className={s.logo}>Pitslify</div>
-        <ul>
-          <li>
-            <a href="#home">Início</a>
-          </li>
-          <li>
-            <a href="#benefits">Benefícios</a>
-          </li>
-          <li>
-            <a href="#pricing">Preços</a>
-          </li>
-          <li>
-            <a href="#contact">Contato</a>
-          </li>
-          <li>
-            <p onClick={() => nav(Rotas.LOGIN)} className={s.cta}>
-              Acessar Minha Área
-            </p>
-          </li>
-        </ul>
+        <div className={s.nav_row}>
+          <ul>
+            <li>
+              <a href="#home">Início</a>
+            </li>
+            <li>
+              <a href="#benefits">Benefícios</a>
+            </li>
+            <li>
+              <a href="#pricing">Preços</a>
+            </li>
+            <li>
+              <a href="#contact">Contato</a>
+            </li>
+          </ul>
+
+          <p onClick={() => nav(Rotas.LOGIN)} className={s.cta}>
+            Acessar Minha Área
+          </p>
+        </div>
       </nav>
       <div className={s.hero}>
         <h1>Facilitamos a publicação do seu aplicativo na Play Store</h1>

@@ -50,7 +50,10 @@ export const AppSubmissionForm = () => {
   return (
     <section className={s.app_submission_container}>
       <h2>Submeter Novo Aplicativo</h2>
-      <form onSubmit={handleSubmit}>
+      <p>
+        Forneça só o essencial abaixo, e então nós cuidaremos do resto pra você!
+      </p>
+      <form style={{ marginTop: 20 }} onSubmit={handleSubmit}>
         <label>
           Nome do Aplicativo:
           <input
@@ -100,16 +103,7 @@ export const AppSubmissionForm = () => {
             onChange={handleChange}
           />
         </label>
-        <label>
-          Usa API Própria ou de Terceiros:
-          <input
-            className={s.checkbox}
-            type="checkbox"
-            name="usesApi"
-            checked={formData.usesApi}
-            onChange={handleChange}
-          />
-        </label>
+
         <label>
           Possui Login:
           <input

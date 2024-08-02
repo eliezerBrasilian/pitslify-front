@@ -1,25 +1,5 @@
 const exposedEnv = {
-  consultaDiabeteApiRepo: process.env.CONSULTA_DIABETE_API_REPO!!,
-  consultaDiabeteApiDoc: process.env.CONSULTA_DIABETE_API_DOC!!,
   discordLink: process.env.DISCORD_LINK!!,
   email: process.env.EMAIL!!,
-  linkedinProfileLink: process.env.LINKEDIN_PROFILE_LINK!!,
-  financasRepo: process.env.FINANCAS_REPO!!,
-  financasGooglePlay: process.env.FINANCAS_GOOGLE_PLAY!!,
-  fortuneCookieRepo: process.env.FORTUNE_COOKIE_REPO!!,
-  fortuneCookieGooglePlay: process.env.FORTUNE_COOKIE_GOOGLE_PLAY!!,
-  diariasRepo: process.env.DIARIAS_REPO!!,
-  diariasSite: process.env.DIARIAS_SITE!!,
-  libGoogleSignIn: process.env.LIB_GOOGLE_SIGNIN!!,
-  gamestateRepo: process.env.GAMESTATE_REPO!!,
-  gamestateGooglePlay: process.env.GAMESTATE_GOOGLE_PLAY!!,
-  foodfacilWeb: process.env.FOODFACIL_WEB!!,
-  foodfacilWebRepo: process.env.FOODFACIL_WEB_REPO!!,
-  foodFacilApiDoc: process.env.FOODFACIL_API_DOC!!,
-  foodFacilApiRepo: process.env.FOODFACIL_API_REPO!!,
-  swipableModalRepo: process.env.SWIPABLE_MODAL_REPO!!,
-  tasksApiRepo: process.env.TASKS_API_REPO!!,
-  currencyVisualTransformationRepo:
-    process.env.CURRENCY_VISUAL_TRANSFORMATION_REPO!!,
 };
 export default exposedEnv;
