@@ -20,6 +20,7 @@ export class AppRepository {
   async sendAab(file: any) {
     try {
       var id = localStorage.getItem(LocalStorageKeys.USER_ID);
+      console.log("id: " + id);
       var uploadService = new UploadImageService();
 
       const aabUrlRef = await uploadService.uploadToFirebaseStorage(file);
