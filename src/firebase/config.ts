@@ -5,12 +5,13 @@ import { getFirestore } from "firebase/firestore";
 import { getStorage } from "firebase/storage";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCvs7gk2KBm3mSUvcTXJBP_D5r8YcUkHks",
-  authDomain: "sistema-de-diarias.firebaseapp.com",
-  projectId: "sistema-de-diarias",
-  storageBucket: "sistema-de-diarias.appspot.com",
-  messagingSenderId: "801910525482",
-  appId: "1:801910525482:web:f1cdc3aa9a456803f4bd53",
+  apiKey: "AIzaSyD5HzZ4lSQk-Y3RnezS3l4k46gXBTmAGT4",
+  authDomain: "pitsfy.firebaseapp.com",
+  projectId: "pitsfy",
+  storageBucket: "pitsfy.appspot.com",
+  messagingSenderId: "1030226152815",
+  appId: "1:1030226152815:web:fec875f6da7635b0eaac9a",
+  measurementId: "G-M9Z3C8XLE9",
 };
 
 const app = initializeApp(firebaseConfig);

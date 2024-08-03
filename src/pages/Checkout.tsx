@@ -5,6 +5,7 @@ import { CheckoutForm } from "../components/CheckoutForm";
 import { Footer } from "../components/Footer";
 import { useCabecalhoContext } from "../context/CabecalhoContext";
 import { LocalStorageKeys } from "../enums/LocalStorageKeys";
+import { OrderType } from "../enums/OrderType";
 import { Platform } from "../enums/Plataform";
 import { Status } from "../enums/Status";
 import s from "../modules/Checkout.module.css";
@@ -71,6 +72,7 @@ const Checkout = () => {
           email: email,
           first_name: name,
         },
+        type: OrderType.CHECKOUT,
       },
       (result) => {
         setBase64(result.qrcode);

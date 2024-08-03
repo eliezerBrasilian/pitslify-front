@@ -1,5 +1,8 @@
-import { ChangeEvent, FormEvent, useState } from "react";
+import { ChangeEvent, FormEvent, useEffect, useState } from "react";
+import { LocalStorageKeys } from "../enums/LocalStorageKeys";
 import s from "../modules/UserArea.module.css";
+import { AppRepository } from "../repositories/AppRepository";
+import { AppStatus } from "../types/AppRequestDto";
 export const AppSubmissionForm = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -15,6 +18,12 @@ export const AppSubmissionForm = () => {
     icon: null,
     screenshots: [],
   });
+
+  useEffect(() => {
+    setFormData(getFormData);
+  }, []);
+
+  const appRepository = new AppRepository();
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value, type, checked } = e.target;
@@ -41,12 +50,38 @@ export const AppSubmissionForm = () => {
     });
   };
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     // Processar a submissão do formulário
     console.log("Form data submitted:", formData);
-  };
 
+    try {
+      await appRepository.createApp(
+        {
+          data: {
+            name: formData.name,
+            short_description: formData.shortDescription,
+            long_description: formData.longDescription,
+            has_ads: formData.hasAds,
+            collects_localization: formData.hasLocation,
+            login_data: {
+              login: formData.loginTextInput,
+              password: formData.loginPasswordInput,
+            },
+            allows_purchase: formData.hasInAppPurchases,
+          },
+          user_data: {
+            email: localStorage.getItem(LocalStorageKeys.EMAIL),
+            id: localStorage.getItem(LocalStorageKeys.USER_ID),
+          },
+          status: AppStatus.WAITING_PUSH,
+        },
+        formData.icon
+      );
+    } catch (error) {
+      alert("Não foi possível enviar seu app já estamos resolvendo o problema");
+    }
+  };
   return (
     <section className={s.app_submission_container}>
       <h2>Submeter Novo Aplicativo</h2>
@@ -182,3 +217,18 @@ export const AppSubmissionForm = () => {
 };
 
 export default AppSubmissionForm;
+
+const getFormData = {
+  name: "FoodFacil",
+  shortDescription: "Aplicativo de gostosuras",
+  longDescription: "Aplicativo de gostosuras e muito bom",
+  hasAds: false,
+  hasLocation: false,
+  usesApi: false,
+  hasLogin: true,
+  loginTextInput: "teste@google.com",
+  loginPasswordInput: "123456",
+  hasInAppPurchases: true,
+  icon: null,
+  screenshots: [],
+};
