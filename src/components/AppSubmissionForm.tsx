@@ -78,6 +78,7 @@ export const AppSubmissionForm = () => {
         },
         formData.icon
       );
+      alert("App enviado com sucesso. Aguarde a publicação");
     } catch (error) {
       alert("Não foi possível enviar seu app já estamos resolvendo o problema");
     }
