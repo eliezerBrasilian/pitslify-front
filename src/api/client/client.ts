@@ -16,5 +16,5 @@ export const getConfig = (token: string) => {
   };
 };
 
-const api = apiLocal;
+const api = apiProd;
 export { api };

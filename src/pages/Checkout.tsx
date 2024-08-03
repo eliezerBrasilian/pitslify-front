@@ -12,9 +12,9 @@ import s from "../modules/Checkout.module.css";
 import { OrderRepository } from "../repositories/OrderRepository";
 
 const Checkout = () => {
-  const [name, setFullName] = useState("");
-  const [email, setEmail] = useState("");
-  const [phoneNumber, setPhoneNumber] = useState("");
+  const [name, setFullName] = useState("Pereira Vasconcellos");
+  const [email, setEmail] = useState("pereirateste@gmail.com");
+  const [phoneNumber, setPhoneNumber] = useState("12345678910");
   const [userType, setUserType] = useState("usuario");
   const [orderId, setOrderId] = useState("");
   const [orderStatus, setOrderStatus] = useState("");
@@ -60,7 +60,7 @@ const Checkout = () => {
   const buyBasic = async (ev: FormEvent<HTMLFormElement>) => {
     ev.preventDefault();
 
-    orderRepository.buyBasic(
+    await orderRepository.buyBasic(
       {
         platform: Platform.WEB,
         product_data: {
