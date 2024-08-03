@@ -7,8 +7,10 @@ export class AppRepository {
   async createApp(appRequest: AppRequestDto, file: any) {
     try {
       await api.post(`/app/create`, appRequest);
-      alert("App enviado com sucesso. Aguarde a publicação");
+
       await this.sendAab(file);
+
+      alert("App enviado com sucesso. Aguarde a publicação");
     } catch (error: any) {
       console.log(error.response.data.message);
       throw new Error(error);
@@ -23,7 +25,7 @@ export class AppRepository {
       const aabUrlRef = await uploadService.uploadToFirebaseStorage(file);
 
       const response: any = await api.post(
-        `/file/upload/aab/${id}/${aabUrlRef}`
+        `/app/file/upload/aab/${id}/${aabUrlRef}`
       );
       console.log(response);
     } catch (error: any) {
