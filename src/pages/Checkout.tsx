@@ -13,10 +13,10 @@ import s from "../modules/Checkout.module.css";
 import { OrderRepository } from "../repositories/OrderRepository";
 
 const Checkout = () => {
-  const [name, setFullName] = useState("Pereira Vasconcellos");
-  const [email, setEmail] = useState("pereirateste@gmail.com");
-  const [phoneNumber, setPhoneNumber] = useState("12345678910");
-  const [userType, setUserType] = useState("usuario");
+  const [name, setFullName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [userType, setUserType] = useState("");
   const [orderId, setOrderId] = useState("");
   const [orderStatus, setOrderStatus] = useState("");
   const [password, setPassword] = useState("");

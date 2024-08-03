@@ -2,7 +2,6 @@ import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 import { useCheckOrder } from "../customHooks/useCheckOrder";
-import { getFormData } from "../data/getFormData";
 import { LocalStorageKeys } from "../enums/LocalStorageKeys";
 import { OrderType } from "../enums/OrderType";
 import { Platform } from "../enums/Plataform";
@@ -35,10 +34,6 @@ export const AppSubmissionForm = () => {
     screenshots: [],
     aab: null,
   });
-
-  useEffect(() => {
-    setFormData(getFormData);
-  }, []);
 
   const appRepository = new AppRepository();
   const userRepository = new UserRepository();
