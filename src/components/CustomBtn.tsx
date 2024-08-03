@@ -1,5 +1,7 @@
 import { cores } from "../assets/cores";
+import { CustomLoading } from "./CustomLoading";
 
+type ButtonType = "button" | "submit" | "reset" | undefined;
 interface BtnProps {
   text: string;
   textColor?: string;
@@ -8,7 +10,10 @@ interface BtnProps {
   icon?: string;
   padding?: string | number;
   onClick?: () => void;
+  buttonType: ButtonType;
+  isLoading?: boolean;
 }
+
 export function CustomBtn({
   text,
   textColor = "#fff",
@@ -17,10 +22,13 @@ export function CustomBtn({
   icon,
   padding = 15,
   onClick = () => {},
+  buttonType = "button",
+  isLoading,
 }: BtnProps) {
   if (icon != undefined) {
     return (
       <button
+        type={buttonType}
         onClick={onClick}
         style={{
           backgroundColor: backgroundColor,
@@ -43,7 +51,11 @@ export function CustomBtn({
   } else
     return (
       <button
-        onClick={onClick}
+        onClick={() => {
+          if (!isLoading) {
+            onClick();
+          }
+        }}
         style={{
           backgroundColor: backgroundColor,
           border: "none",
@@ -52,11 +64,12 @@ export function CustomBtn({
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
-          width: width,
+          width: !isLoading ? width : 180,
           color: textColor,
+          cursor: !isLoading ? "pointer" : "default",
         }}
       >
-        {text}
+        {isLoading ? <CustomLoading tam={20} cor="#fff" /> : text}
       </button>
     );
 }

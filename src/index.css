@@ -3,6 +3,7 @@
   padding: 0;
   box-sizing: border-box;
 }
+
 body {
   min-height: 100vh;
   background-color: #08090b;
@@ -22,6 +23,10 @@ p {
   font-family: Montserrat;
   font-size: 15px;
   color: #fff;
+}
+
+button {
+  cursor: pointer;
 }
 
 @font-face {

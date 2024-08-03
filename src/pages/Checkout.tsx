@@ -4,6 +4,7 @@ import { cores } from "../assets/cores";
 import { CheckoutForm } from "../components/CheckoutForm";
 import { Footer } from "../components/Footer";
 import { useCabecalhoContext } from "../context/CabecalhoContext";
+import { useCheckOrder } from "../customHooks/useCheckOrder";
 import { LocalStorageKeys } from "../enums/LocalStorageKeys";
 import { OrderType } from "../enums/OrderType";
 import { Platform } from "../enums/Plataform";
@@ -26,36 +27,12 @@ const Checkout = () => {
 
   const [base64, setBase64] = useState("");
 
-  useEffect(() => {
-    if (orderId != "" && orderStatus != Status.APPROVED) {
-      async function checkOrderStatus() {
-        console.log("orderid: " + orderId);
+  useCheckOrder(orderId, orderStatus, email, (orderDetails) => {
+    setPassword(orderDetails.password);
+    localStorage.setItem(LocalStorageKeys.PASSWORD, orderDetails.password);
 
-        const orderDetails = await orderRepository.checkOrderStatus(
-          orderId,
-          email
-        );
-
-        const status = orderDetails.status;
-
-        if (status == Status.WAITING) {
-          console.log("esta aguardando");
-        } else if (status == Status.APPROVED) {
-          setPassword(orderDetails.password);
-          localStorage.setItem(
-            LocalStorageKeys.PASSWORD,
-            orderDetails.password
-          );
-
-          setOrderStatus(status);
-        }
-      }
-
-      const intervalId = setInterval(checkOrderStatus, 5000);
-
-      return () => clearInterval(intervalId);
-    }
-  }, [orderId, orderStatus]);
+    setOrderStatus(Status.APPROVED);
+  });
 
   const buyBasic = async (ev: FormEvent<HTMLFormElement>) => {
     ev.preventDefault();

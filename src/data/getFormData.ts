@@ -1,0 +1,15 @@
+export const getFormData = {
+  name: "FoodFacil",
+  shortDescription: "Aplicativo de gostosuras",
+  longDescription: "Aplicativo de gostosuras e muito bom",
+  hasAds: false,
+  hasLocation: false,
+  usesApi: false,
+  hasLogin: true,
+  loginTextInput: "teste@google.com",
+  loginPasswordInput: "123456",
+  hasInAppPurchases: true,
+  icon: null,
+  screenshots: [],
+  aab: null,
+};
