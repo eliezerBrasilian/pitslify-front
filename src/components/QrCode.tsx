@@ -7,7 +7,13 @@ interface QrcodeInterface {
 export function QrCode(props: QrcodeInterface) {
   if (props.base64 == "") return null;
   return (
-    <div style={{ placeSelf: "center" }}>
+    <div
+      style={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+      }}
+    >
       <QRCodeSVG value={props.base64} height={200} width={200} />
     </div>
   );

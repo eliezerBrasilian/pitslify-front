@@ -1,15 +1,14 @@
 import AppSubmissionForm from "../components/AppSubmissionForm";
-import { Footer } from "../components/Footer";
+import s from "../modules/UserArea.module.css";
 import { Header } from "../navigation/Header";
 
 const UserArea = () => {
   return (
-    <div>
+    <div className={s.user_area_container}>
       <Header />
       <main style={{ marginTop: 70 }}>
         <AppSubmissionForm />
       </main>
-      <Footer />
     </div>
   );
 };

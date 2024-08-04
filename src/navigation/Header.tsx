@@ -3,6 +3,7 @@ import { NavLink, useLocation } from "react-router-dom";
 import { cores } from "../assets/cores";
 import { CustomNav } from "../components/CustomNav";
 import { useCabecalhoContext } from "../context/CabecalhoContext";
+
 import { LocalStorageKeys } from "../enums/LocalStorageKeys";
 import { Zindex } from "../enums/Zindex";
 import { Rotas } from "./Rotas";

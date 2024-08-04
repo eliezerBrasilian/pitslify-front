@@ -1,6 +1,6 @@
 import { api } from "../api/client/client";
 import { LocalStorageKeys } from "../enums/LocalStorageKeys";
-import { AppRequestDto } from "../types/AppRequestDto";
+import { AppResponseDto } from "../types/AppResponseDto";
 
 interface UserPermissionStatus {
   has_permission: boolean;
@@ -36,7 +36,24 @@ export class UserRepository {
     try {
       var userId = localStorage.getItem(LocalStorageKeys.USER_ID);
       const response = await api.get(`/user/my-apps/${userId}`);
-      return response.data as AppRequestDto[];
+      return response.data as AppResponseDto[];
+    } catch (error: any) {
+      throw new Error(error);
+    }
+  }
+
+  async requestTransfer(appId: string) {
+    console.log(appId);
+    try {
+      var userId = localStorage.getItem(LocalStorageKeys.USER_ID);
+
+      const response = await api.post(
+        `/user/request-app-transfer/${userId}/${appId}`
+      );
+      alert("Transferência solicitada!");
+
+      console.log(response.data);
+      window.location.reload();
     } catch (error: any) {
       throw new Error(error);
     }

@@ -25,6 +25,7 @@ export function PixView(props: PixViewProps) {
           justifyContent: "space-between",
           padding: 10,
           width: "60%",
+          overflow: "hidden",
           border: "1px solid gray",
           backgroundColor: "white",
           borderRadius: 10,
@@ -32,8 +33,7 @@ export function PixView(props: PixViewProps) {
         }}
       >
         <div style={{ display: "flex", alignItems: "center", gap: 15 }}>
-          <img src={pixIcon} height={20} width={20} />
-          <p style={{ color: "black" }}>Chave Pix</p>
+          <img src={pixIcon} height={23} width={23} />
         </div>
 
         <div
@@ -42,11 +42,12 @@ export function PixView(props: PixViewProps) {
             alignItems: "center",
             gap: 15,
             cursor: "pointer",
+            whiteSpace: "nowrap",
           }}
           onClick={props.onClick}
         >
-          <p style={{ color: "black" }}>
-            {AppUtils.truncateText(props.chavePix, 45)}
+          <p style={{ color: "black", margin: 0 }}>
+            {AppUtils.truncateText(props.chavePix, 20)}
           </p>
           <img src={copyIcon} height={20} width={20} />
         </div>

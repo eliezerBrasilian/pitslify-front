@@ -191,7 +191,7 @@ export const AppSubmissionForm = () => {
 
       {base64 != "" && (
         <div style={{ marginTop: 20 }}>
-          <p style={{ marginBottom: 10 }}>
+          <p className={s.description} style={{ marginBottom: 10 }}>
             Realize o pagamento abaixo para seguir com a publicação de seu
             aplicativo
           </p>
@@ -208,7 +208,7 @@ export const AppSubmissionForm = () => {
       {base64 == "" && (
         <form style={{ marginTop: 20 }} onSubmit={handleSubmit}>
           {!loading && (
-            <div>
+            <div className={s.form_column}>
               <label>
                 Nome do Aplicativo:
                 <input
@@ -271,7 +271,7 @@ export const AppSubmissionForm = () => {
               </label>
               {formData.hasLogin && (
                 <div className={s.login_data_container}>
-                  <h3>Forneça um login e senha de teste</h3>
+                  <h3 className={s.title}>Forneça um login e senha de teste</h3>
                   <label>
                     Login:
                     <input
@@ -324,12 +324,15 @@ export const AppSubmissionForm = () => {
                     multiple
                     onChange={handleScreenshotsChange}
                     required
+                    style={{ display: "none" }}
+                    id="screenshotsInput"
                   />
                 </label>
                 <button
                   type="button"
+                  className={s.btn_add_screenshot}
                   onClick={() =>
-                    document.getElementsByName("screenshots")[0].click()
+                    document.getElementById("screenshotsInput")?.click()
                   }
                 >
                   +

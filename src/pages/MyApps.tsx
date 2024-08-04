@@ -2,31 +2,32 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import icon from "../assets/frajola_thumb.jpg";
 import right from "../assets/right-arrow.png";
+import { ButtonWithTooltip } from "../components/ButtonWithTooltip";
 import { Footer } from "../components/Footer";
-import { getDefaultApps } from "../data/getApps";
 import s from "../modules/MyApps.module.css";
 import { Header } from "../navigation/Header";
 import { Rotas } from "../navigation/Rotas";
+import { UserRepository } from "../repositories/UserRepository";
 import { AppStatus } from "../types/AppRequestDto";
 import { AppResponseDto } from "../types/AppResponseDto";
 
 const MyApps = () => {
   const [apps, setApps] = useState<AppResponseDto[]>();
-  //const userRepo = new UserRepository();
+  const userRepo = new UserRepository();
 
   const nav = useNavigate();
 
   useEffect(() => {
-    setApps(getDefaultApps);
+    async function fetchApps() {
+      const lista = await userRepo.getMyApps();
+      setApps(lista);
+    }
+    fetchApps();
   }, []);
 
-  // useEffect(() => {
-  //   async function fetchApps() {
-  //     const lista = await userRepo.getMyApps();
-  //     setApps(lista);
-  //   }
-  //   fetchApps();
-  // }, []);
+  const clickRequestTransfer = async (appId: string) => {
+    await userRepo.requestTransfer(appId);
+  };
 
   return (
     <div className={s.my_apps_container}>
@@ -36,11 +37,12 @@ const MyApps = () => {
           style={{
             alignSelf: "flex-end",
             marginRight: 40,
-            backgroundColor: "#f35424",
+            backgroundColor: "#345995",
             padding: 9,
             borderStyle: "none",
             borderRadius: 10,
             cursor: "pointer",
+            marginBottom: 20,
           }}
           onClick={() => nav(Rotas.USER_AREA)}
         >
@@ -61,12 +63,17 @@ const MyApps = () => {
                 <div>
                   <h1>Nome: {item.name}</h1>
                   <h2>Descrição curta: {item.name}</h2>
-                  <h2>Status: {AppStatus[item.appStatus]}</h2>
+                  <h2>Status: {getStatusText(item.appStatus)}</h2>
                   {item.appStatus == AppStatus.APPROVED && (
                     <button>Obter o link do aplicativo na Playstore</button>
                   )}
 
-                  <ButtonWithTooltip />
+                  {item.appStatus != AppStatus.WAITING_PUSH && (
+                    <ButtonWithTooltip
+                      transferStatus={item.transferStatus}
+                      onClick={() => clickRequestTransfer(item.id)}
+                    />
+                  )}
                 </div>
               </div>
             ))}
@@ -78,34 +85,18 @@ const MyApps = () => {
   );
 };
 
-export default MyApps;
-
-export const ButtonWithTooltip: React.FC = () => {
-  const [showTooltip, setShowTooltip] = useState(false);
-
-  const handleMouseEnter = () => {
-    setShowTooltip(true);
-  };
-
-  const handleMouseLeave = () => {
-    setShowTooltip(false);
-  };
-
-  return (
-    <div className={s.tooltip_container}>
-      <button
-        className={s.tooltip_button}
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
-      >
-        Solicitar transferência para minha conta de Desenvolvedor
-      </button>
-      {showTooltip && (
-        <span className={s.tooltip_text}>
-          Transferimos o aplicativo para sua conta de desenvolvedor na Google
-          Play Console
-        </span>
-      )}
-    </div>
-  );
+const getStatusText = (status: AppStatus) => {
+  if (status == AppStatus.APPROVED) {
+    return "Publicado com sucesso";
+  } else if (status == AppStatus.DISAPPROVED) {
+    return "Rejeitado, fazendo a republicação...";
+  } else if (status == AppStatus.IN_REVIEW) {
+    return "Sendo revisado pela GooglePlay";
+  } else if (status == AppStatus.PUSHED) {
+    return "Enviado para análise";
+  } else {
+    return "Adicionado a fila de publicação";
+  }
 };
+
+export default MyApps;

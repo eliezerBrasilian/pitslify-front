@@ -6,7 +6,13 @@
 
 body {
   min-height: 100vh;
+  min-width: 100vw;
   background-color: #08090b;
+}
+
+footer {
+  width: 100%;
+  text-align: center;
 }
 
 @font-face {
@@ -34,11 +40,6 @@ button {
   src: url(/static/Inter-Medium.ttf);
 }
 
-/* body {
-  display: flex;
-  justify-content: center;
-} */
-
 a {
   font-weight: 500;
   color: #646cff;
@@ -46,4 +47,38 @@ a {
 }
 a:hover {
   color: #535bf2;
+}
+
+form {
+  max-width: 500px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+form label {
+  margin-top: 10px;
+  text-align: left;
+}
+
+form input,
+form textarea {
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+form button {
+  padding: 10px 20px;
+  margin-top: 20px;
+  border: none;
+  background: #4caf50;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+form label {
+  color: white;
 }

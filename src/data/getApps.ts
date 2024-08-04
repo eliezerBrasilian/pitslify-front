@@ -21,7 +21,7 @@ export const getDefaultApps: AppResponseDto[] = [
     appStatus: AppStatus.WAITING_PUSH,
     createdAt: Date.now(),
     googlePlayLink: "",
-    transferStatus: TransferStatus.IDLE,
+    transferStatus: TransferStatus.REQUESTED,
   },
   {
     id: "2",
@@ -63,7 +63,7 @@ export const getDefaultApps: AppResponseDto[] = [
     appStatus: AppStatus.IN_REVIEW,
     createdAt: Date.now(),
     googlePlayLink: "",
-    transferStatus: TransferStatus.IDLE,
+    transferStatus: TransferStatus.REQUESTED,
   },
   {
     id: "4",
@@ -84,7 +84,7 @@ export const getDefaultApps: AppResponseDto[] = [
     appStatus: AppStatus.DISAPPROVED,
     createdAt: Date.now(),
     googlePlayLink: "",
-    transferStatus: TransferStatus.IDLE,
+    transferStatus: TransferStatus.DISAPPROVED,
   },
   {
     id: "5",
@@ -108,3 +108,6 @@ export const getDefaultApps: AppResponseDto[] = [
     transferStatus: TransferStatus.IDLE,
   },
 ];
+
+export const getfakePixKey =
+  "https://firebasestorage.googleapis.com/v0/b/pitsfy.appspot.com/o/app_resources%2Faab%2Fundefined?alt=media&token=d8d89a94-36d7-4fd8-93cc-180cc8ca0a25";
