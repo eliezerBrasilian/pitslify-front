@@ -9,7 +9,7 @@ export const Pricing = () => {
   return (
     <section id="pricing">
       <h2>Opções de Pacotes</h2>
-      <div className={s.pricing_container}>
+      <div style={{ height: 200 }} className={s.pricing_container}>
         <PricingPlan
           title="Pacote Básico"
           priceText="R$ 30,00 por publicação"
@@ -20,7 +20,7 @@ export const Pricing = () => {
         />
         <PricingPlan
           title="Pacote Profissional"
-          priceText="$70 por mês (publicações ilimitadas)"
+          priceText="$300 por mês (publicações ilimitadas)"
           linkText="Começar"
           onClick={() => {}}
         />

@@ -42,7 +42,7 @@ const Checkout = () => {
         platform: Platform.WEB,
         product_data: {
           description: "basic access",
-          price: 1,
+          price: 30,
           title: "basic access",
         },
         user_data: {
@@ -81,7 +81,7 @@ const Checkout = () => {
               Painel de acesso:
               {
                 <p style={{ color: cores.azul_claro }}>
-                  https://pitslify/login
+                  https://www.pitsfy.com.br/login
                 </p>
               }
             </h2>

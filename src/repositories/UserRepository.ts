@@ -36,6 +36,8 @@ export class UserRepository {
     try {
       var userId = localStorage.getItem(LocalStorageKeys.USER_ID);
       const response = await api.get(`/user/my-apps/${userId}`);
+
+      console.log(response);
       return response.data as AppResponseDto[];
     } catch (error: any) {
       throw new Error(error);

@@ -25,9 +25,43 @@ interface LoginData {
 }
 
 export enum TransferStatus {
-  IDLE,
-  REQUESTED,
-  ACCEPTED,
-  DISAPPROVED,
-  SUCCESS,
+  IDLE = "IDLE",
+  REQUESTED = "REQUESTED",
+  ACCEPTED = "ACCEPTED",
+  DISAPPROVED = "DISAPPROVED",
+  SUCCESS = "SUCCESS",
+}
+
+export function stringToTransferStatus(status: string): TransferStatus | null {
+  switch (status.toUpperCase()) {
+    case "IDLE":
+      return TransferStatus.IDLE;
+    case "REQUESTED":
+      return TransferStatus.REQUESTED;
+    case "ACCEPTED":
+      return TransferStatus.ACCEPTED;
+    case "DISAPPROVED":
+      return TransferStatus.DISAPPROVED;
+    case "SUCCESS":
+      return TransferStatus.SUCCESS;
+    default:
+      return null;
+  }
+}
+
+export function StatusToString(status: TransferStatus): string {
+  switch (status) {
+    case TransferStatus.IDLE:
+      return "IDLE";
+    case TransferStatus.REQUESTED:
+      return "REQUESTED";
+    case TransferStatus.ACCEPTED:
+      return "ACCEPTED";
+    case TransferStatus.DISAPPROVED:
+      return "DISAPPROVED";
+    case TransferStatus.SUCCESS:
+      return "SUCCESS";
+    default:
+      return "UNKNOWN";
+  }
 }

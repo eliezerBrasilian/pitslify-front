@@ -8,7 +8,14 @@ interface PricingPlanProps {
 }
 export const PricingPlan = (props: PricingPlanProps) => {
   return (
-    <div className={s.pricing_plan}>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "space-between",
+      }}
+      className={s.pricing_plan}
+    >
       <h3>{props.title}</h3>
       <p>{props.priceText}</p>
       <p onClick={props.onClick} className={s.cta}>

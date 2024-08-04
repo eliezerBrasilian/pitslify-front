@@ -25,9 +25,9 @@ interface LoginData {
 }
 
 export enum AppStatus {
-  WAITING_PUSH,
-  PUSHED,
-  IN_REVIEW,
-  DISAPPROVED,
-  APPROVED,
+  WAITING_PUSH = "WAITING_PUSH",
+  PUSHED = "PUSHED",
+  IN_REVIEW = "IN_REVIEW",
+  DISAPPROVED = "DISAPPROVED",
+  APPROVED = "APPROVED",
 }

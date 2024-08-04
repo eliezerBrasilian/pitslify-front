@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import right from "../assets/right-arrow.png";
 import { ButtonWithTooltip } from "../components/ButtonWithTooltip";
 import { Footer } from "../components/Footer";
+import { LocalStorageKeys } from "../enums/LocalStorageKeys";
 import s from "../modules/MyApps.module.css";
 import { Header } from "../navigation/Header";
 import { Rotas } from "../navigation/Rotas";
@@ -17,8 +18,15 @@ const MyApps = () => {
   const nav = useNavigate();
 
   useEffect(() => {
+    if (localStorage.getItem(LocalStorageKeys.USER_ID) == null) {
+      nav(Rotas.HOME);
+    }
+  }, []);
+
+  useEffect(() => {
     async function fetchApps() {
       const lista = await userRepo.getMyApps();
+      console.log(lista);
       setApps(lista);
     }
     fetchApps();
@@ -58,7 +66,10 @@ const MyApps = () => {
           <div>
             {apps?.map((item, index) => (
               <div key={index} className={s.app_item}>
-                <img src={item.icon} />
+                <img
+                  src={`data:image/jpeg;base64,${item.icon}`}
+                  alt="icone do app"
+                />
                 <div>
                   <h1>Nome: {item.name}</h1>
                   <h2>Descrição curta: {item.name}</h2>
@@ -83,6 +94,16 @@ const MyApps = () => {
     </div>
   );
 };
+/*
+
+export enum TransferStatus {
+  IDLE,
+  REQUESTED,
+  ACCEPTED,
+  DISAPPROVED,
+  SUCCESS,
+}
+*/
 
 const getStatusText = (status: AppStatus) => {
   if (status == AppStatus.APPROVED) {

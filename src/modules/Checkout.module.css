@@ -18,6 +18,10 @@
     display: flex;
     gap: 20px;
 
+    @media (max-width: 500px) {
+      flex-direction: column;
+    }
+
     form label {
       display: block;
       margin-bottom: 10px;

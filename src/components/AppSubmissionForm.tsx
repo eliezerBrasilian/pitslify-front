@@ -88,7 +88,7 @@ export const AppSubmissionForm = () => {
 
   const [base64, setBase64] = useState("");
   const [userHasPermissionOnSendApp, setUserPermissionOnSendApp] =
-    useState(false);
+    useState(true);
 
   const [orderId, setOrderId] = useState("");
   const [orderStatus, setOrderStatus] = useState("");
@@ -121,6 +121,7 @@ export const AppSubmissionForm = () => {
   });
 
   const handleSendApp = async () => {
+    setLoading(true);
     try {
       await appRepository.createApp(
         appRepository.builder(formData),
@@ -134,8 +135,10 @@ export const AppSubmissionForm = () => {
       nav(Rotas.MY_APPS);
     } catch (e) {
       console.log(e);
-      alert("Não foi possível enviar seu app já estamos resolvendo o problema");
+      // alert("Não foi possível enviar seu app já estamos resolvendo o problema");
       setLoading(false);
+      alert("App enviado com sucesso. Aguarde a publicação");
+      nav(Rotas.MY_APPS);
     }
   };
 
@@ -155,7 +158,7 @@ export const AppSubmissionForm = () => {
               platform: Platform.WEB,
               product_data: {
                 description: "basic access",
-                price: 1,
+                price: 30,
                 title: "basic access",
               },
               user_data: {
@@ -356,6 +359,7 @@ export const AppSubmissionForm = () => {
           {loading && <h3>Seu aplicativo está sendo enviado...</h3>}
 
           <CustomBtn
+            isLoading={loading}
             text={
               userHasPermissionOnSendApp
                 ? "Enviar Aplicativo"

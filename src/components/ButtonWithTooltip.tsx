@@ -55,7 +55,7 @@ const getTransferText = (transferStatus: TransferStatus) => {
   } else if (transferStatus == TransferStatus.REQUESTED) {
     return "Transferência solicitada";
   } else if (transferStatus == TransferStatus.IDLE) {
-    return " Solicitar transferência";
+    return "Solicitar transferência";
   } else if (transferStatus == TransferStatus.SUCCESS) {
     return "Transferência realizada!";
   } else {

@@ -24,7 +24,6 @@ export function PixView(props: PixViewProps) {
           alignItems: "center",
           justifyContent: "space-between",
           padding: 10,
-          width: "60%",
           overflow: "hidden",
           border: "1px solid gray",
           backgroundColor: "white",

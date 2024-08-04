@@ -10,7 +10,7 @@ const Login = () => {
   const nav = useNavigate();
 
   useEffect(() => {
-    if (localStorage.getItem(LocalStorageKeys.TOKEN) != null) {
+    if (localStorage.getItem(LocalStorageKeys.USER_ID) != null) {
       nav(Rotas.USER_AREA);
     }
   }, []);
