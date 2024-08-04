@@ -158,7 +158,7 @@ export const AppSubmissionForm = () => {
               platform: Platform.WEB,
               product_data: {
                 description: "basic access",
-                price: 30,
+                price: 1,
                 title: "basic access",
               },
               user_data: {
