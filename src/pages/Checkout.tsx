@@ -42,7 +42,7 @@ const Checkout = () => {
         platform: Platform.WEB,
         product_data: {
           description: "basic access",
-          price: 1,
+          price: 30,
           title: "basic access",
         },
         user_data: {
