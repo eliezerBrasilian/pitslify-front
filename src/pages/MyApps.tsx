@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import icon from "../assets/frajola_thumb.jpg";
 import right from "../assets/right-arrow.png";
 import { ButtonWithTooltip } from "../components/ButtonWithTooltip";
 import { Footer } from "../components/Footer";
@@ -59,7 +58,7 @@ const MyApps = () => {
           <div>
             {apps?.map((item, index) => (
               <div key={index} className={s.app_item}>
-                <img src={icon} />
+                <img src={item.icon} />
                 <div>
                   <h1>Nome: {item.name}</h1>
                   <h2>Descrição curta: {item.name}</h2>
