@@ -22,18 +22,27 @@ export const Header = () => {
             <li>
               <a href="#contact">Contato</a>
             </li>
+            <p
+              onClick={() => nav(Rotas.LOGIN)}
+              className={s.cta}
+              style={{ marginTop: 0 }}
+            >
+              Acessar Minha Área
+            </p>
           </ul>
-
-          <p onClick={() => nav(Rotas.LOGIN)} className={s.cta}>
-            Acessar Minha Área
-          </p>
         </div>
       </nav>
       <div className={s.hero}>
         <h1>Facilitamos a publicação do seu aplicativo na Play Store</h1>
-        <p>Deixe todo o trabalho burocrático e técnico com a gente.</p>
-        <a href="#pricing" className={s.cta}>
-          Saiba Mais
+        <p style={{ marginTop: 20, marginBottom: 20 }}>
+          Deixe todo o trabalho burocrático e técnico com a gente.
+        </p>
+        <a
+          style={{ marginBottom: 50, backgroundColor: "#4caf50" }}
+          href="#pricing"
+          className={s.cta}
+        >
+          Ver Pacotes
         </a>
       </div>
     </header>
