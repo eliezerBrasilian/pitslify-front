@@ -21,6 +21,11 @@ export function Header() {
 
   const getOut = () => {
     localStorage.removeItem(LocalStorageKeys.TOKEN);
+    localStorage.removeItem(LocalStorageKeys.USER_ID);
+    localStorage.removeItem(LocalStorageKeys.EMAIL);
+    localStorage.removeItem(LocalStorageKeys.ORDER_ID);
+    localStorage.removeItem(LocalStorageKeys.NOME);
+    localStorage.removeItem(LocalStorageKeys.PASSWORD);
   };
 
   if (!isVisible) return null;
