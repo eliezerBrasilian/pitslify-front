@@ -122,24 +122,17 @@ export const AppSubmissionForm = () => {
 
   const handleSendApp = async () => {
     setLoading(true);
-    try {
-      await appRepository.createApp(
-        appRepository.builder(formData),
-        formData.aab,
-        formData.icon,
-        formData.screenshots
-      );
-      alert("App enviado com sucesso. Aguarde a publicação");
-      await userRepository.updatePermissionAboutSendApp();
-      setLoading(false);
-      nav(Rotas.MY_APPS);
-    } catch (e) {
-      console.log(e);
-      // alert("Não foi possível enviar seu app já estamos resolvendo o problema");
-      setLoading(false);
-      alert("App enviado com sucesso. Aguarde a publicação");
-      nav(Rotas.MY_APPS);
-    }
+
+    await appRepository.createApp(
+      appRepository.builder(formData),
+      formData.aab,
+      formData.icon,
+      formData.screenshots
+    );
+    alert("App enviado com sucesso. Aguarde a publicação");
+    await userRepository.updatePermissionAboutSendApp();
+    setLoading(false);
+    nav(Rotas.MY_APPS);
   };
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {

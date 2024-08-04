@@ -47,6 +47,7 @@ export class AppRepository {
       await this.sendIcon(icon, appId);
       await this.sendImages(screenshots, appId);
     } catch (error: any) {
+      console.log("erro é: " + error);
       throw new Error(error);
     }
   }
