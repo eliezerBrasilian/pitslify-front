@@ -7,6 +7,7 @@ export const Header = () => {
   const nav = useNavigate();
 
   const currrentWidth = useLarguraAtual();
+  console.log(currrentWidth);
 
   return (
     <header>
@@ -41,9 +42,11 @@ export const Header = () => {
         <p style={{ marginTop: 20, marginBottom: 20 }}>
           Deixe todo o trabalho burocrático e técnico com a gente.
         </p>
-        {currrentWidth <= 600 ? (
+        {currrentWidth <= 500 ? (
           <a
-            style={{ marginBottom: 50, backgroundColor: "#4caf50" }}
+            style={{
+              backgroundColor: "#4caf50",
+            }}
             className={s.cta}
             onClick={() => {
               nav(`${Rotas.CHECKOUT}/basic`);

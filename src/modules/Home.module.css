@@ -67,6 +67,10 @@
   section {
     padding: 50px 20px;
     text-align: center;
+
+    @media (max-width: 500px) {
+      margin-top: 100px;
+    }
   }
 
   .benefits_container,
