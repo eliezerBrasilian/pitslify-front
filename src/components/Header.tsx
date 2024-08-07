@@ -1,9 +1,13 @@
 import { useNavigate } from "react-router-dom";
+import { useLarguraAtual } from "../customHooks/useLarguraAtual";
 import s from "../modules/Home.module.css";
 import { Rotas } from "../navigation/Rotas";
 
 export const Header = () => {
   const nav = useNavigate();
+
+  const currrentWidth = useLarguraAtual();
+
   return (
     <header>
       <nav>
@@ -33,17 +37,29 @@ export const Header = () => {
         </div>
       </nav>
       <div className={s.hero}>
-        <h1>Facilitamos a publicação do seu aplicativo na Play Store</h1>
+        <h1>Realizamos a publicação do seu aplicativo na Play Store</h1>
         <p style={{ marginTop: 20, marginBottom: 20 }}>
           Deixe todo o trabalho burocrático e técnico com a gente.
         </p>
-        <a
-          style={{ marginBottom: 50, backgroundColor: "#4caf50" }}
-          href="#pricing"
-          className={s.cta}
-        >
-          Ver Pacotes
-        </a>
+        {currrentWidth <= 600 ? (
+          <a
+            style={{ marginBottom: 50, backgroundColor: "#4caf50" }}
+            className={s.cta}
+            onClick={() => {
+              nav(`${Rotas.CHECKOUT}/basic`);
+            }}
+          >
+            Publicar agora
+          </a>
+        ) : (
+          <a
+            style={{ marginBottom: 50, backgroundColor: "#4caf50" }}
+            href="#pricing"
+            className={s.cta}
+          >
+            Ver Pacotes
+          </a>
+        )}
       </div>
     </header>
   );
