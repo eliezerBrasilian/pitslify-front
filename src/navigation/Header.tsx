@@ -52,7 +52,7 @@ export function Header() {
       <NavLink to={Rotas.USER_AREA}>
         {
           <CustomNav
-            titulo={"Pitslify"}
+            titulo={"Pitsfy"}
             isActive={currentNav == Rotas.USER_AREA}
           />
         }
