@@ -6,6 +6,17 @@ export class AppUtils {
     window.open(link, "_blank");
   }
 
+  static copyToClipboard(text: string) {
+    navigator.clipboard
+      .writeText(text as string)
+      .then(() => {
+        toast("copiado com sucesso");
+      })
+      .catch((_err) => {
+        alert("Erro ao copiar");
+      });
+  }
+
   static copiaChavePixParaTeclado(chave: string) {
     navigator.clipboard
       .writeText(chave as string)

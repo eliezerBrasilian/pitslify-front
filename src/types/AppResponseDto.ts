@@ -26,6 +26,7 @@ interface LoginData {
 
 export enum TransferStatus {
   IDLE = "IDLE",
+  WAITING = "WAITING",
   REQUESTED = "REQUESTED",
   ACCEPTED = "ACCEPTED",
   DISAPPROVED = "DISAPPROVED",

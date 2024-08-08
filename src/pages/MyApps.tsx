@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import right from "../assets/right-arrow.png";
 import { ButtonWithTooltip } from "../components/ButtonWithTooltip";
 import { Footer } from "../components/Footer";
@@ -10,7 +12,7 @@ import { Rotas } from "../navigation/Rotas";
 import { UserRepository } from "../repositories/UserRepository";
 import { AppStatus } from "../types/AppRequestDto";
 import { AppResponseDto } from "../types/AppResponseDto";
-
+import { AppUtils } from "../utils/AppUtils";
 const MyApps = () => {
   const [apps, setApps] = useState<AppResponseDto[]>();
   const userRepo = new UserRepository();
@@ -75,7 +77,13 @@ const MyApps = () => {
                   <h2>Descrição curta: {item.name}</h2>
                   <h2>Status: {getStatusText(item.appStatus)}</h2>
                   {item.appStatus == AppStatus.APPROVED && (
-                    <button>Obter o link do aplicativo na Playstore</button>
+                    <button
+                      onClick={() => {
+                        AppUtils.copyToClipboard(item.googlePlayLink);
+                      }}
+                    >
+                      Obter o link do aplicativo na Playstore
+                    </button>
                   )}
 
                   {item.appStatus != AppStatus.WAITING_PUSH && (
@@ -91,6 +99,7 @@ const MyApps = () => {
         )}
       </main>
       <Footer />
+      <ToastContainer />
     </div>
   );
 };
