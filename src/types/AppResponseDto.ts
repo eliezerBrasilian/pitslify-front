@@ -4,7 +4,7 @@ export interface AppResponseDto {
   id: string;
   userId: string;
   name: string;
-  short_description: string;
+  shortDescription: string;
   long_description: string;
   has_ads: boolean;
   collects_localization: boolean;

@@ -74,7 +74,7 @@ const MyApps = () => {
                 />
                 <div>
                   <h1>Nome: {item.name}</h1>
-                  <h2>Descrição curta: {item.name}</h2>
+                  <h2>Descrição curta: {item.shortDescription}</h2>
                   <h2>Status: {getStatusText(item.appStatus)}</h2>
                   {item.appStatus == AppStatus.APPROVED && (
                     <button
