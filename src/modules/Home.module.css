@@ -65,7 +65,7 @@
   }
 
   section {
-    padding: 50px 20px;
+    padding: 20px;
     text-align: center;
 
     @media (max-width: 500px) {
